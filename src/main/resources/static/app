@@ -1,0 +1,109 @@
+in application.properties
+
+#spring.data.cassandra.contact-points=
+#- casshost-1.tacocloud.com
+#- casshost-2.tacocloud.com
+#- casshost-3.tacocloud.com
+
+#spring.data.cassandra.port=9043
+#spring.data.cassandra.username: tacocloud
+#spring.data.cassandra.password=s3cr3tP455w0rd
+
+
+CREATE KEYSPACE tacocloud WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+ use tacocloud;
+
+
+
+
+
+
+
+#spring.application.name=TacoCloud
+##????????? ??? thymeleaf
+##spring.thymeleaf.cache=false
+#
+#spring.datasource.generate-unique-name=false
+#
+#spring.datasource.name=tacocloud
+##spring.jpa.defer-datasource-initialization=true
+#spring.main.allow-bean-definition-overriding=true
+#
+##spring.datasource.url=jdbc:h2:mem:tacocloud
+## ???, ???? ?????? ????????? ?????? ? ????:
+## spring.datasource.url=jdbc:h2:file:./data/tacocloud
+##spring.datasource.driver-class-name=org.h2.Driver
+##spring.datasource.username=sa
+##spring.datasource.password=1234
+##spring.h2.console.enabled=true
+#
+##jdbc:h2:mem:tacocloud
+##sa
+##1234
+
+#spring.jpa.defer-datasource-initialization=true
+#
+#spring.data.cassandra.keyspace-name=taco_cloud
+
+# This property is particularly useful during development because it ensures that any tables and
+# user-defined types are dropped and recreated each time the application starts. The default value, `none`,
+# specifies that no action should be taken regarding the database schema.
+#spring.data.cassandra.schema-action=recreate
+#
+#spring.data.cassandra.local-datacenter=datacenter1
+
+
+
+ ###MongoDB
+нереактивную версию MongoDB:
+<dependency> <groupId>org.springframework.boot</groupId> <artifactId>
+spring-boot-starter-data-mongodb </artifactId>
+</dependency>
+
+Flapdoodle – встраиваемую версию MongoDB:
+<dependency>
+<groupId>de.flapdoodle.embed</groupId> <artifactId>de.flapdoodle.embed.mongo</artifactId> <!-- <scope>test</scope> -->
+</dependency>
+
+
+$ docker run -p 27017:27017 -d mongo:latest
+
+
+ spring: data:
+ mongodb:
+ host: mongodb.tacocloud.com port: 27017
+ username: tacocloud password: s3cr3tp455w0rd database: tacoclouddb
+
+spring.data.mongodb.host – имя хоста, где действует сервер Mon- go (по умолчанию: localhost);
+spring.data.mongodb.port – номер порта, который прослушива- ется сервером Mongo (по умолчанию: 27017);
+spring.data.mongodb.username – имя пользователя для доступа к базе данных Mongo;
+spring.data.mongodb.password – пароль для доступа к базе дан- ных Mongo;
+spring.data.mongodb.database – имя базы данных (по умолча- нию: test).
+
+
+из всего набора таких аннотаций наиболее часто используются только четыре:
+@Id – объявляет свойство уникальным идентификатором доку- мента (из Spring Data Commons);
+@Document – объявляет тип данных документом, который может храниться в MongoDB;
+@Field – определяет имя поля (и дополнительно порядок сорти- ровки) для сохранения свойства в хранимом документе;
+@Transient – определяет свойство, которое не будет сохраняться в базе данных.
+
+зайти в кассандра
+docker exec -it taco-cassandra cqlsh
+
+выбор пространство ключей
+USE taco_cloud;
+
+Посмотрите список таблиц
+DESCRIBE tables;
+
+Посмотрите данные в таблицах (Запросы)
+SELECT * FROM ingredients;
+
+
+
+
+
+
+
+
+
