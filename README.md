@@ -5,6 +5,5 @@ Traditional multipage application (MPA) with Spring MVC
 - Validate form input and display validation errors
 - See your order history
 
-Spring Data: store information about ingredients, tacos, orders in Microsoft SQL Server database with:
-JDBC 
+Spring Data: store information about ingredients, tacos, orders in Microsoft SQL Server database with: cassandra
 # TacoCloudApp
