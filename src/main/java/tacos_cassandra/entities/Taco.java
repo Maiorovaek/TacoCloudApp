@@ -2,7 +2,6 @@ package tacos_cassandra.entities;
 
 
 import com.datastax.oss.driver.api.core.uuid.Uuids;
-//import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -18,16 +17,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Entity
 @Table("tacos") //Хранить в таблице "tacos"
 
 public class Taco {
-
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
 
     //Определение ключа раздела
     //Он указывает, что свойство id играет роль ключа раздела, используемого для выбора
@@ -47,22 +39,6 @@ public class Taco {
     @Size(min = 5, message = "name must be at least 5 characters long")
     private String name;
 
-//    @ManyToOne
-//    @JoinColumn(name = "taco_order")
-//    private TacoOrder tacoOrder;
-//
-//    @NotNull
-//    @Size(min = 1, message = "You must choose at least 1 ingredient")
-    //заимосвязь между Taco и списком ингредиентов Ingredient
-    //Объект Taco может включать в список несколько объектов Ingredient,
-    // а один объект Ingredient может быть частью списков в нескольких объектах Taco.
-//    @ManyToMany
-//    @JoinTable(
-//            name = "taco_ingredients",
-//            joinColumns = @JoinColumn(name = "taco_id"),
-//            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
-//    )
-
 
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     //   Отображает список в столбец "ingredients"
@@ -70,7 +46,6 @@ public class Taco {
     private List<IngredientUDT> ingredients = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {
-        //this.ingredients.add(ingredient);
 
         /// столбцы, хранящие коллекции данных, такие как столбец ingredients, должны быть коллекциями
         /// встроенных типов (целых чисел, строк и т. д.) или типов, определяемых пользователем.

@@ -1,6 +1,6 @@
 package tacos_cassandra.entities;
 
-//import jakarta.persistence.*;
+
 
 import lombok.*;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -20,16 +20,10 @@ import org.springframework.data.cassandra.core.mapping.Table;
 //@Entity
 @Table("ingredients")
 public class Ingredient
-        //  implements Persistable<String >
 {
-    //   @Id
-//   @Column(name = "id")
     @PrimaryKey
     private String id;
-    //    @Column(name = "name")
     private String name;
-    //    @Enumerated(EnumType.STRING)
-//    @Column(name = "type")
     private Type type;
 
     public enum Type {

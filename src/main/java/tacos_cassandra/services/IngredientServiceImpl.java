@@ -33,20 +33,5 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
 
-    //    @Override
-//    public Iterable<Ingredient> findAll() {
-//        return
-//                jdbcTemplate.query(
-//                        "select id, name, type from Ingredient",
-//                        this::mapRowToIngredient);
-//
-//    }
-//
-//    private Ingredient mapRowToIngredient(ResultSet row, int rowNum)
-//            throws SQLException {
-//        return new Ingredient(
-//                row.getString("id"),
-//                row.getString("name"),
-//                Ingredient.Type.valueOf(row.getString("type")));
-//    }
+
 }
